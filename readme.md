@@ -4,7 +4,7 @@
 
 A iniciativa ReciclaCerto nasceu da necessidade de tornar a reciclagem mais acessível e prática. Muitas pessoas não sabem exatamente o que pode ser reciclado ou onde descartar corretamente cada material. O ReciclaCerto resolve esse problema ao informar, de forma rápida e intuitiva, se um item é reciclável e onde descartá-lo, promovendo impacto positivo no meio ambiente.
 
-<a href="#"><img src="https://img.shields.io/badge/-ReciclaCerto-228B22?style=for-the-badge" alt="ReciclaCerto"></a>
+<a href="https://projetoreciclacerto.onrender.com/"><img src="https://img.shields.io/badge/-ReciclaCerto-228B22?style=for-the-badge" alt="ReciclaCerto"></a>
 
 Durante a Imersão IA da Alura, encarei o desafio de desenvolver este projeto em tempo limitado. Para isso, explorei o poder da inteligência artificial, que me ajudou a estruturar o site, permitindo-me focar nas implementações futuras. Compartilho aqui a 'versão zero' desse trabalho, que serve como uma reflexão sobre como a IA pode simplificar e acelerar até as tarefas mais banais, abrindo um universo de possibilidades onde apenas nossa criatividade pode nos deter.
 
