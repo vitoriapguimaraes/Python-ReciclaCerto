@@ -1,0 +1,37 @@
+[
+  {
+    "nome": "Ecoponto Vila Mariana",
+    "endereco": "Rua José Antônio Coelho, 545 - Vila Mariana, São Paulo - SP",
+    "latitude": -23.5888,
+    "longitude": -46.6385,
+    "materiais_aceitos": [
+      "plástico",
+      "papel",
+      "metal",
+      "vidro",
+      "óleo de cozinha",
+      "pequenos eletrônicos"
+    ]
+  },
+  {
+    "nome": "Cooperativa Coopercaps",
+    "endereco": "Rua Padre Luiz de Siqueira, 182 - Santo Amaro, São Paulo - SP",
+    "latitude": -23.6517,
+    "longitude": -46.7028,
+    "materiais_aceitos": ["plástico", "papel", "metal", "vidro"]
+  },
+  {
+    "nome": "Ponto de Coleta de Eletrônicos (Parceiro GreenEletron)",
+    "endereco": "Av. Paulista, 1578 - Bela Vista, São Paulo - SP (Exemplo: Loja de eletrônicos)",
+    "latitude": -23.56135,
+    "longitude": -46.6568,
+    "materiais_aceitos": ["eletrônicos"]
+  },
+  {
+    "nome": "Central Reóleo (Óleo de Cozinha)",
+    "endereco": "Rua Augusta, 2690 - Cerqueira César, São Paulo - SP (Exemplo: Ponto de coleta Reóleo)",
+    "latitude": -23.5593,
+    "longitude": -46.6669,
+    "materiais_aceitos": ["óleo de cozinha usado"]
+  }
+]

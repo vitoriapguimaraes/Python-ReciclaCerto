@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReciclaCerto: versão 1</title>
+    <link rel="stylesheet" href="./style1.css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key={{ Maps_api_key }}&callback=initMap"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ReciclaCerto</h1>
+      <p>Seu guia rápido para uma reciclagem consciente.</p>
+
+      <section class="item-checker">
+        <h2>Verificar Item</h2>
+        <input
+          type="text"
+          id="itemInput"
+          placeholder="Ex: Garrafa PET, isopor, escova de dente..."
+        />
+        <button onclick="verificarItem()">Verificar</button>
+        <div id="geminiResult" class="result-box"></div>
+      </section>
+
+      <section class="location-finder">
+        <h2>Encontrar Pontos de Coleta</h2>
+        <p>Com base na sua localização, encontre onde descartar:</p>
+        <input
+          type="text"
+          id="locationInput"
+          placeholder="Sua cidade/endereço (Ex: São Paulo, SP)"
+          onkeyup="if(event.key === 'Enter') buscarLocalizacao()"
+        />
+        <button onclick="buscarLocalizacao()">Usar Localização Atual</button>
+        <button onclick="buscarLocalizacao(true)">Buscar por Endereço</button>
+        <div id="locationResult" class="result-box"></div>
+        <div
+          id="map"
+          style="
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            display: none;
+          "
+        ></div>
+      </section>
+
+      <section class="association-signup">
+        <h2>Sou uma Associação/Cooperativa de Reciclagem</h2>
+        <p>Gostaria de cadastrar seu ponto de coleta?</p>
+        <form id="associationForm">
+          <label for="assocNome">Nome da Associação:</label>
+          <input type="text" id="assocNome" name="nome" required />
+
+          <label for="assocEndereco">Endereço:</label>
+          <input type="text" id="assocEndereco" name="endereco" required />
+
+          <label for="assocItens"
+            >Itens que aceita (separados por vírgula):</label
+          >
+          <input
+            type="text"
+            id="assocItens"
+            name="itens_aceitos"
+            placeholder="Ex: Plástico, Papel, Metal"
+          />
+
+          <label for="assocContato">Contato (Email/Telefone):</label>
+          <input type="text" id="assocContato" name="contato" />
+
+          <button type="submit">
+            Cadastrar (Funcionalidade em desenvolvimento)
+          </button>
+          <p class="small-text">
+            <i
+              >(Este formulário não envia dados para o servidor ainda. É um
+              protótipo.)</i
+            >
+          </p>
+        </form>
+      </section>
+    </div>
+
+    <script src="./script1.js"></script>
+  </body>
+</html>
