@@ -1,39 +1,24 @@
-let currentMaterial = null; // Guarda o material retornado pelo Gemini (ex: "plástico")
-let currentItem = null; // Guarda o último item pesquisado pelo usuário (ex: "Garrafa PET")
-// Indica se há locais disponíveis no JSON para o material atual
-// (determinado pelo backend)
+let currentMaterial = null;
+let currentItem = null;
 let currentLocalsAvailable = false;
-
-/**
- * Função assíncrona para verificar um item com o modelo Gemini.
- * Exibe as informações de reciclagem e atualiza o estado da aplicação.
- */
 async function verificarItem() {
   const itemInput = document.getElementById("itemInput");
   const geminiResultDiv = document.getElementById("geminiResult");
-  // Sempre esconde o resultado antes de processar
   geminiResultDiv.style.display = "none";
   const item = itemInput.value.trim();
-
   if (!item) {
     geminiResultDiv.innerHTML =
       '<div class="result-box error">Por favor, digite um item.</div>';
     geminiResultDiv.style.display = "block";
     return;
   }
-
   geminiResultDiv.innerHTML =
     '<div class="result-box loading">Verificando com o Gemini...</div>';
   geminiResultDiv.style.display = "block";
-
-  // Reseta estados para uma nova busca
   currentMaterial = null;
   currentItem = item;
   currentLocalsAvailable = false;
-
-  // Limpa resultados de localização anteriores
   document.getElementById("locationResult").innerHTML = "";
-
   try {
     const response = await fetch("/ask_gemini", {
       method: "POST",
@@ -42,69 +27,45 @@ async function verificarItem() {
       },
       body: JSON.stringify({ item: item }),
     });
-
     const data = await response.json();
-
     if (response.ok) {
       let htmlContent = "";
-      // Usa as mensagens personalizadas do backend para preencher as "boxes"
       if (data.mensagem2) {
-        // Mensagem principal de reciclagem
         htmlContent += `<div class="result-box-reciclavel">${data.mensagem2}</div>`;
       }
       if (data.mensagem1) {
-        // Mensagem sobre cooperativas/locais
         htmlContent += `<div class="result-box-coleta">${data.mensagem1}</div>`;
       }
       if (data.mensagem3) {
-        // Instruções de preparo
         htmlContent += `<div class="result-box-instrucao">${data.mensagem3}</div>`;
       }
-
       geminiResultDiv.innerHTML = htmlContent;
       geminiResultDiv.style.display = "block";
-
-      // Atualiza variáveis globais com base na resposta do backend
-      currentMaterial = data.gemini_raw?.material || item; // Pega o material ou o item original
-      currentLocalsAvailable = data.status === "tem_local"; // True se o backend indicou locais
+      currentMaterial = data.gemini_raw?.material || item;
+      currentLocalsAvailable = data.status === "tem_local";
     } else {
-      // Tratamento de erro quando a resposta do servidor não é ok (e.g., 500 INTERNAL SERVER ERROR)
       geminiResultDiv.innerHTML = `<div class="result-box error">Erro: ${
         data.error || "Ocorreu um erro desconhecido."
       }</div>`;
       geminiResultDiv.style.display = "block";
     }
   } catch (error) {
-    // Tratamento de erro de rede ou falha na requisição
     console.error("Erro na requisição Gemini:", error);
     geminiResultDiv.innerHTML =
       '<div class="result-box error">Não foi possível conectar ao servidor. Verifique sua conexão ou tente novamente.</div>';
     geminiResultDiv.style.display = "block";
   }
 }
-
-/**
- * Função assíncrona para buscar pontos de coleta próximos.
- * Pode usar a geolocalização do navegador ou um endereço digitado.
- * @param {boolean} useAddressInput - Se true, usa o valor do input de endereço; caso contrário, usa a geolocalização.
- */
 async function buscarLocalizacao(useAddressInput = false) {
   const locationInput = document.getElementById("locationInput");
   const locationResultDiv = document.getElementById("locationResult");
-
-  // Sempre esconde o resultado antes de processar
   locationResultDiv.style.display = "none";
-
-  // Verifica se há material ou item para buscar
   if (!currentMaterial && !currentItem) {
     locationResultDiv.innerHTML =
       '<div class="result-box error">Primeiro, verifique um item para saber o tipo de material!</div>';
     locationResultDiv.style.display = "block";
     return;
   }
-
-  // Se o backend informou que não há locais específicos para este material,
-  // exibe a mensagem apropriada e não tenta buscar locais.
   if (!currentLocalsAvailable) {
     locationResultDiv.innerHTML = `<div class="result-box info">Não temos cooperativas cadastradas que aceitam <span class="material-info">${
       currentItem || currentMaterial
@@ -112,14 +73,11 @@ async function buscarLocalizacao(useAddressInput = false) {
     locationResultDiv.style.display = "block";
     return;
   }
-
   locationResultDiv.innerHTML =
     '<div class="result-box loading">Buscando pontos de coleta...</div>';
   locationResultDiv.style.display = "block";
-
   let latitude, longitude;
   let userLocationFound = false;
-
   if (useAddressInput) {
     const address = locationInput.value.trim();
     if (!address) {
@@ -134,7 +92,6 @@ async function buscarLocalizacao(useAddressInput = false) {
         )}&limit=1`
       );
       const geocodingData = await geocodingResponse.json();
-
       if (geocodingData && geocodingData.length > 0) {
         latitude = parseFloat(geocodingData[0].lat);
         longitude = parseFloat(geocodingData[0].lon);
@@ -175,13 +132,11 @@ async function buscarLocalizacao(useAddressInput = false) {
       return;
     }
   }
-
   if (!userLocationFound) {
     locationResultDiv.innerHTML =
       '<div class="result-box error">Não foi possível determinar sua localização para buscar pontos de coleta.</div>';
     return;
   }
-
   try {
     const response = await fetch("/find_recycling_points", {
       method: "POST",
@@ -194,19 +149,14 @@ async function buscarLocalizacao(useAddressInput = false) {
         longitude: longitude,
       }),
     });
-
     const data = await response.json();
-
     if (response.ok) {
       if (data.pontos && data.pontos.length > 0) {
         let listHtml =
           `<div class="result-box"><b>Pontos de coleta próximos que aceitam <span class="material-info">${
             currentMaterial || currentItem
           }</span>:</b></div>` + '<ul class="location-list">';
-
-        // Exibe os pontos de coleta encontrados
         data.pontos.forEach((ponto) => {
-          // Adiciona a distância se ela existir no objeto do ponto
           const distancia = ponto.distancia_km
             ? ` (${ponto.distancia_km} km)`
             : "";
@@ -238,14 +188,12 @@ async function buscarLocalizacao(useAddressInput = false) {
     locationResultDiv.style.display = "block";
   }
 }
-
-// Event Listener para o formulário de associação (funcionalidade em desenvolvimento)
 document
   .getElementById("associationForm")
   .addEventListener("submit", function (event) {
-    event.preventDefault(); // Impede o envio padrão do formulário
+    event.preventDefault();
     alert(
       "Obrigado! A funcionalidade de cadastro de associações está em desenvolvimento. Seus dados não foram enviados. Continue acompanhando!"
     );
-    this.reset(); // Limpa o formulário
+    this.reset();
   });
