@@ -184,13 +184,13 @@ button:hover {
 }
 
 .location-list li p {
-  margin: 0; /* Remove margem padrão do parágrafo */
+  margin: 0;
   font-size: 0.9em;
   color: #666;
 }
 
 .location-list li a {
-  align-self: flex-end; /* Alinhar link à direita */
+  align-self: flex-end;
   background-color: #3498db;
   color: white;
   padding: 5px 10px;
