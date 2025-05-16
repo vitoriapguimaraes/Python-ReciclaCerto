@@ -6,8 +6,7 @@ A iniciativa ReciclaCerto nasceu da necessidade de tornar a reciclagem mais aces
 
 <a href="#"><img src="https://img.shields.io/badge/-ReciclaCerto-228B22?style=for-the-badge" alt="ReciclaCerto"></a>
 
-> Eu fiz esse projeto em pouco tempo como um desafio da Imersão IA da Alura e, por isso, usei a IA para fazer um site para mim, que depois eu pudesse ir implementando.
-> Deixei nesse repositório a versão 'zero' desse material, como uma reflexão de como a IA pode nos ajudar nas tarefas mais banais, depois só nossa criatividade é o limite.
+Durante a Imersão IA da Alura, encarei o desafio de desenvolver este projeto em tempo limitado. Para isso, explorei o poder da inteligência artificial, que me ajudou a estruturar o site, permitindo-me focar nas implementações futuras. Compartilho aqui a 'versão zero' desse trabalho, que serve como uma reflexão sobre como a IA pode simplificar e acelerar até as tarefas mais banais, abrindo um universo de possibilidades onde apenas nossa criatividade pode nos deter.
 
 ### Versão final
 ![Tela do sistema](https://github.com/vitoriapguimaraes/projetoReciclaCerto/blob/main/results/display.gif)
