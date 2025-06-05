@@ -95,7 +95,7 @@ projetoReciclaCerto/
 
 ## Status
 
-🚧 Em desenvolvimento
+✅ Concluído
 
 > Melhorias planejadas:
 > - Design responsivo para mobile
