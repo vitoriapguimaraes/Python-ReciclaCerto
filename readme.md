@@ -2,6 +2,8 @@
 
 > Aplicação web que simplifica a reciclagem no dia a dia, conectando o usuário a informações essenciais sobre descarte correto de resíduos e pontos de coleta próximos, utilizando Inteligência Artificial e mapas interativos.
 
+<a href="https://projetoreciclacerto.onrender.com/"><img src="https://img.shields.io/badge/-ReciclaCerto-228B22?style=for-the-badge" alt="ReciclaCerto"></a>
+
 ![Demonstração do sistema](https://github.com/vitoriapguimaraes/projetoReciclaCerto/blob/main/results/display.gif)
 
 ## Funcionalidades Principais
@@ -80,7 +82,7 @@ projetoReciclaCerto/
 
 ## Status
 
-🚧 Em desenvolvimento
+✅ Concluído
 
 > Veja as [issues abertas](https://github.com/vitoriapguimaraes/projetoReciclaCerto/issues) para sugestões de melhorias e próximos passos.
 
