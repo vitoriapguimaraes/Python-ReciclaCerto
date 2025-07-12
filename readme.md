@@ -1,17 +1,8 @@
-# ReciclaCerto: Seu Guia Rápido para uma Reciclagem Consciente
+# ReciclaCerto
 
-> Uma aplicação web que simplifica a reciclagem no dia a dia, conectando o usuário a informações essenciais sobre descarte correto de resíduos e pontos de coleta próximos, utilizando Inteligência Artificial e mapas interativos.
+> Aplicação web que simplifica a reciclagem no dia a dia, conectando o usuário a informações essenciais sobre descarte correto de resíduos e pontos de coleta próximos, utilizando Inteligência Artificial e mapas interativos.
 
-A iniciativa ReciclaCerto nasceu da necessidade de tornar a reciclagem mais acessível e prática. Muitas pessoas não sabem exatamente o que pode ser reciclado ou onde descartar corretamente cada material. O ReciclaCerto resolve esse problema ao informar, de forma rápida e intuitiva, se um item é reciclável e onde descartá-lo, promovendo impacto positivo no meio ambiente.
-
-<a href="#"><img src="https://img.shields.io/badge/-ReciclaCerto-228B22?style=for-the-badge" alt="ReciclaCerto"></a>
-
-Durante a Imersão IA da Alura, encarei o desafio de desenvolver este projeto em tempo limitado. Para isso, explorei o poder da inteligência artificial, que me ajudou a estruturar o site, permitindo-me focar nas implementações futuras. Compartilho aqui a 'versão zero' desse trabalho, que serve como uma reflexão sobre como a IA pode simplificar e acelerar até as tarefas mais banais, abrindo um universo de possibilidades onde apenas nossa criatividade pode nos deter.
-
-![Tela do sistema](https://github.com/vitoriapguimaraes/projetoReciclaCerto/blob/main/results/display.gif)
-
-### Versão 'zero'
-![Tela do sistema](https://github.com/vitoriapguimaraes/projetoReciclaCerto/blob/main/results/display-v1.gif)
+![Demonstração do sistema](https://github.com/vitoriapguimaraes/projetoReciclaCerto/blob/main/results/display.gif)
 
 ## Funcionalidades Principais
 
@@ -33,12 +24,6 @@ Durante a Imersão IA da Alura, encarei o desafio de desenvolver este projeto em
 ## Como Executar
 
 1. Clone o repositório:
-
-   ```bash
-   git clone https://github.com/seu-usuario/reciclacerto.git
-   cd reciclacerto
-   ```
-
 2. Crie e ative um ambiente virtual:
 
    ```bash
@@ -97,13 +82,8 @@ projetoReciclaCerto/
 
 🚧 Em desenvolvimento
 
-> Melhorias planejadas:
-> - Design responsivo para mobile
-> - Integração avançada de mapas (rotas, detalhes dos pontos)
-> - Banco de dados persistente para cooperativas e ecopontos
-> - Cadastro e gerenciamento de associações/cooperativas
-> - Parcerias com organizações nacionais de reciclagem
+> Veja as [issues abertas](https://github.com/vitoriapguimaraes/projetoReciclaCerto/issues) para sugestões de melhorias e próximos passos.
 
-## Mais sobre mim
+## Mais Sobre Mim
 
 Acesse os arquivos disponíveis na [Pasta Documentos](https://github.com/vitoriapguimaraes/vitoriapguimaraes/tree/main/DOCUMENTOS) para mais informações sobre minhas qualificações e certificações.
